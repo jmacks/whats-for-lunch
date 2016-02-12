@@ -1,0 +1,30 @@
+{
+  "name": "whats-for-lunch",
+  "version": "1.0.0",
+  "description": "a remake of the original hit",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmacks/whats-for-lunch.git"
+  },
+  "author": "Jeff Macks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmacks/whats-for-lunch/issues"
+  },
+  "homepage": "https://github.com/jmacks/whats-for-lunch#readme",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "jquery": "^2.2.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.7",
+    "morgan": "^1.6.1",
+    "request": "^2.69.0",
+    "yelp": "^1.0.1"
+  }
+}
