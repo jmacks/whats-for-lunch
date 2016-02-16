@@ -18,16 +18,20 @@ mongoose.connect('mongodb://localhost/lunch', function(err){
   }
 });
 // config the middleware
-app.use(routes);
-// grab all static files from the public folder
-app.use(express.static(__dirname + '/public'));
-// make some better errors
-app.use(morgan('dev'));
 // use body parser to see the body of responses
 app.use(bodyParser.urlencoded( { 'extended': 'true' } ));
 app.use(bodyParser.json());
+// grab all static files from the public folder
+app.use('/', express.static(__dirname + '/public'));
+app.use('/scripts', express.static(__dirname + '/node_modules'));
+// make some better errors
+app.use(morgan('dev'));
+
 // use method override
 app.use(methodOverride());
+//routes
+app.use(routes);
+
 
 // setting up the server connection
 app.listen(1818, function(err){

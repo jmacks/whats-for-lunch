@@ -14,35 +14,17 @@ let yelp = new Yelp(
 
 
 var retrieve = function(req, res){
-  var url = "http://jsonplaceholder.typicode.com/posts";
 
-  function foodAPI(url, callback){
-    request(url, function(err, response, body){
-      if(err){
-        throw err;
-      } else{
-        callback(body);
-      }
-    })
-  };
 
-  var position = navigator.geolocation.getCurrentPosition();
-  console.log(position);
-
-  foodAPI(url, function(body){
-
-    res.json(JSON.parse(body));
+  yelp.search({
+    term: 'food',
+    location: '10002'
+  }).then(function(data){
+      res.json(data);
   });
 
-  // yelp.search({
-  //   term: 'food',
-  //   cll: '37.77493,-122.419415'
-  // }).then(function(data){
-  //   res.json(data);
-  // });
 
-
-}
+};
 
 module.exports = {
   retrieve: retrieve
