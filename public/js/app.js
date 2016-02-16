@@ -1,14 +1,16 @@
+'use strict';
 //setting up the routes in main js file since there arent very many and im not putting much else in here
+angular.module('lunchApp', ['ngRoute']);
 
 (function(){
 
-  var lunchApp = angular.module('lunchApp', ['ngRoute']);
+  angular.module('lunchApp')
 
-  lunchApp.config(function($routeProvider){
+      .config(function($routeProvider){
       $routeProvider
         .when('/', {
-          controller: '',
-          templateUrl: '/views/index.html'
+          controller: 'welcomeController',
+          templateUrl: '/views/welcome.html'
         })
         .when('/feeding', {
           controller:'',
