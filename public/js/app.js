@@ -12,6 +12,10 @@ angular.module('lunchApp', ['ngRoute']);
           controller: 'welcomeController',
           templateUrl: '/views/welcome.html'
         })
+        .when('/yelp', {
+          controller: 'yelpController',
+          templateUrl: '/views/yelp.html'
+        })
         .when('/feeding', {
           controller:'',
           templateUrl: '/views/feeding.html'

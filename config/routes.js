@@ -14,6 +14,8 @@ let food = require('../controllers/food_controller.js');
 
 router.route('/food')
       .get(food.retrieve)
+router.route('/food/:zipcode')
+      .get(food.getByZip)
 
 
 

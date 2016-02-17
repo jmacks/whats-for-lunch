@@ -10,6 +10,10 @@
       return $http.get('/food');
     };
 
+    factory.getFoodByZip = function(zipcode){
+      return $http.get('/food/' + zipcode);
+    }
+
 
     return factory;
   }

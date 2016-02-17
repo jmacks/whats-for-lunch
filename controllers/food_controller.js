@@ -26,6 +26,19 @@ var retrieve = function(req, res){
 
 };
 
+var getByZip = function(req, res){
+  var zipcode = req.params.zipcode;
+
+  yelp.search({
+    term: 'food',
+    location: zipcode
+  }).then(function(data){
+    res.json(data);
+  });
+
+};
+
 module.exports = {
-  retrieve: retrieve
+  retrieve: retrieve,
+  getByZip: getByZip
 }
