@@ -9,6 +9,7 @@
         foodFactory.getFoodByZip($scope.zipcode)
                   .success(function(food){
                     $scope.name = food.businesses[0].name;
+                    
 
                   }).error(function(data, status){
                     $log.log('zip food error');

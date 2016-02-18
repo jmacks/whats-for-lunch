@@ -1,9 +1,10 @@
 'use strict';
 (function(){
-  var randomNum = Math.floor(Math.random() * 19) + 1
+
   var yelpController = function($scope, $log, foodFactory){
 
       function initFood(){
+        var randomNum = Math.floor(Math.random() * 19) + 1
         console.log('food has been called');
         foodFactory.getYelpAPI()
                 .success(function(food){
