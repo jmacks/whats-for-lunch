@@ -1,7 +1,7 @@
 'use strict';
 (function(){
 
-  var yelpController = function($scope, $log, foodFactory, locationFactory){
+  var yelpController = function($scope, $log, foodFactory){
 
 
       navigator.geolocation.getCurrentPosition(position);
@@ -13,7 +13,7 @@
         $scope.accuracy = pos.coords.accuracy;
 
       };
-    
+
 
     function initFood(){
         var randomNum = Math.floor(Math.random() * 19) + 1
@@ -44,7 +44,7 @@
 
   }
 
-  yelpController.$inject = ['$scope', '$log', 'foodFactory', 'locationFactory'];
+  yelpController.$inject = ['$scope', '$log', 'foodFactory'];
 
   angular.module('lunchApp').controller('yelpController', yelpController);
 
