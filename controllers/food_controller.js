@@ -18,7 +18,7 @@ var retrieve = function(req, res){
 
   yelp.search({
     term: 'food',
-    location: '10002'
+    ll: '40.718566900000006,-73.985308'
   }).then(function(data){
       res.json(data);
   });
@@ -38,7 +38,23 @@ var getByZip = function(req, res){
 
 };
 
+var getByLocation = function(req, res){
+
+  var lat = req.params.lat;
+  var lon = req.params.lon;
+
+  yelp.search({
+    term: 'food',
+    ll: lat+','+lon
+  }).then(function(data){
+    res.json(data);
+  });
+
+};
+
+
 module.exports = {
   retrieve: retrieve,
-  getByZip: getByZip
+  getByZip: getByZip,
+  getByLocation: getByLocation
 }

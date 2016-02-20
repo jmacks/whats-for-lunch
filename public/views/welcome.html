@@ -1,11 +1,26 @@
+<div id="header" class="center-align">
 <h1>welcome to what's for lunch?</h1>
-<h4>were here to help you decide what to eat</h4>
-<p>enter your zipcode or the type of grub your looking for and we'll suggest a place for you</p><br/>
-zipcode:<br/>
-<input type="text" ng-model="zipcode">
-<br/>
-<button ng-click="foodInit()">find me food</button><br/>
+<p>scrolling through seamless can be a major bitch and you never really <strong>discover</strong> the best places in the hood. we're changing that foerever</p>
+<p>enter your city or zipcode to get started</p><br/>
 
-{{name}}
+<div class="input-field col s6">
+    <input id="zipcode" type="text" class="validate" ng-model="zipcode">
+    <label for="zipcode"> City or Zipcode</label>
+</div>
+
+<button class="waves-effect waves-light btn-small" ng-click="foodInit()">find me food</button><br/>
+<div>
 <br/>
-<a href="#/yelp">Yelp</a>
+<div id="restaurant-data-display" class="center-align">
+<h2>{{name}}</h2><br/>
+<img src={{ratingImage}}><br/>
+{{category[0]}}<br/>
+{{phone}}<br/>
+ <h5>{{address[0]}}<br/>{{address[1]}}</h5><br/>
+
+<p>"{{reviewSnippet}}""</p></br>
+
+</div>
+<br />
+
+<br/>

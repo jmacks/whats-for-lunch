@@ -1,7 +1,8 @@
 'use strict';
-//setting up the routes in main js file since there arent very many and im not putting much else in here
+//instantiate the apps main angular module
 angular.module('lunchApp', ['ngRoute']);
 
+//setting up the frontend routes
 (function(){
 
   angular.module('lunchApp')
@@ -16,9 +17,9 @@ angular.module('lunchApp', ['ngRoute']);
           controller: 'yelpController',
           templateUrl: '/views/yelp.html'
         })
-        .when('/feeding', {
-          controller:'',
-          templateUrl: '/views/feeding.html'
+        .when('/restaurants', {
+          controller:'restaurantsController',
+          templateUrl: '/views/restaurants.html'
         })
         .otherwise({ redirectTo: '/' })
   })

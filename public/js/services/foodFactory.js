@@ -12,6 +12,10 @@
 
     factory.getFoodByZip = function(zipcode){
       return $http.get('/food/' + zipcode);
+    };
+
+    factory.getFoodByLocation = function(lat, lon){
+      return $http.get('/food/' + lat + '/' + lon)
     }
 
 

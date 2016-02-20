@@ -16,6 +16,8 @@ router.route('/food')
       .get(food.retrieve)
 router.route('/food/:zipcode')
       .get(food.getByZip)
+router.route('/food/:lat/:lon')
+      .get(food.getByLocation)
 
 
 
