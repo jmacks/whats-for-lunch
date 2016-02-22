@@ -17,12 +17,21 @@ html{
 
 }
 
-#intro-text{
+#intro-text {
   margin-bottom: -600px;
   font-size: 17px;
 }
 
+#intro-text p {
+  color: gray;
+}
+
 #location-input{
-  width: 300px;
-  align-items: center;
+  width: 500px;
+  margin-left: 115px;
+}
+
+#cookin-logo {
+  height: 62px;
+  width: 50px;
 }

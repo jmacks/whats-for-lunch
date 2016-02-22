@@ -1,29 +1,32 @@
-<div id="header" class="center-align">
-    <div id="intro-text">
+  <div id="header" class="center-align">
+      <div class="container" id="intro-text">
 
-      <h1>what's cookin'?</h1>
-      <h2>what's cookin'?</h2>
-      <p>enter your city or zipcode to get started or just click feed me if you want to search in {{location}}</p><br/>
+        <h1>what's cookin'?</h1>
+        <h2>What's Cookin'?</h2>
+        <p>Click this: <a class="btn-floating btn-large waves-effect waves-light blue accent-4" ng-click="locationInit()"><i class="material-icons">my_location</i></a> to get your location or enter a city or zip to search anywhere you want</p>
+        <p>your current location: {{location}}</p>
 
-  <div id="location-input" class="input-field col s6 pull-s5">
-      <input id="zipcode" type="text" class="validate" ng-model="zipcode">
-      <label for="zipcode"> City or Zipcode</label>
+    <div id="location-input" class="input-field center-align">
+        <input id="zipcode" type="text" class="validate" ng-model="zipcode">
+        <label for="zipcode"> City or Zipcode</label>
+    </div>
+    <a class="waves-effect waves-light btn-large blue accent-4" ng-click="foodInit()"><i class="material-icons right">send</i>Feed Me</a>
+    </div>
   </div>
-  <a class="waves-effect waves-light btn-large blue accent-4" ng-click="foodInit()"><i class="material-icons right">send</i>Feed Me</a>
+
+  <br/>
+
+
+  <div id="restaurant-data-display" class="center-align">
+  <h2>{{name}}</h2><br/>
+  <img src={{ratingImage}}><br/>
+  {{category[0]}}<br/>
+  {{phone}}<br/>
+   <h5>{{address[0]}}<br/>{{address[1]}}</h5><br/>
+
+  <p>"{{reviewSnippet}}""</p></br>
+
   </div>
-</div>
+  <br />
 
-<br/>
-<div id="restaurant-data-display" class="center-align">
-<h2>{{name}}</h2><br/>
-<img src={{ratingImage}}><br/>
-{{category[0]}}<br/>
-{{phone}}<br/>
- <h5>{{address[0]}}<br/>{{address[1]}}</h5><br/>
-
-<p>"{{reviewSnippet}}""</p></br>
-
-</div>
-<br />
-
-<br/>
+  <br/>
