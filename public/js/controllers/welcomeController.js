@@ -11,6 +11,23 @@
       $scope.lat = pos.coords.latitude;
       $scope.lon = pos.coords.longitude;
     };
+    //  initialize location for display
+    function locationInit(){
+     foodFactory.getFoodByLocation($scope.lat, $scope.lon)
+                .success(function(food){
+                  $scope.location = function(){
+                    if($scope.address.length > 2){
+                      return food.businesses[randomNum].location.display_address[1] + ', ' + food.businesses[randomNum].location.display_address[2]
+                    } else{
+                      return food.businesses[randomNum].location.display_address[1]
+                    }
+                  }
+                }).error(function(err, status){
+                  $log.log('location unavailable')
+                })
+      };
+      
+
 
       function foodInit(){
         var randomNum = Math.floor(Math.random() * 19) + 1
@@ -39,6 +56,8 @@
                        $scope.ratingImage = food.businesses[randomNum].rating_img_url;
                        $scope.category = food.businesses[randomNum].categories[0];
                        $scope.address = food.businesses[randomNum].location.display_address;
+
+
                      }).error(function(data, status){
                        $log.log('food by current location error');
                      });

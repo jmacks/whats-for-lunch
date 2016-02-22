@@ -1,0 +1,28 @@
+html{
+  font-family: 'Bitter', serif;
+}
+#navigation-bar {
+  font-family: 'Bitter', serif;
+}
+
+#header{
+  height: 580px;
+  background-image: url('http://accecel.com/food/backgrounds/bg10.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  margin-top: -100px;
+  position: relative;
+  font-family: 'Bitter', serif;
+
+}
+
+#intro-text{
+  margin-bottom: -600px;
+  font-size: 17px;
+}
+
+#location-input{
+  width: 300px;
+  align-items: center;
+}

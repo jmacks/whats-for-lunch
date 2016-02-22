@@ -1,15 +1,18 @@
 <div id="header" class="center-align">
-<h1>welcome to what's for lunch?</h1>
-<p>scrolling through seamless can be a major bitch and you never really <strong>discover</strong> the best places in the hood. we're changing that foerever</p>
-<p>enter your city or zipcode to get started</p><br/>
+    <div id="intro-text">
 
-<div class="input-field col s6">
-    <input id="zipcode" type="text" class="validate" ng-model="zipcode">
-    <label for="zipcode"> City or Zipcode</label>
+      <h1>what's cookin'?</h1>
+      <h2>what's cookin'?</h2>
+      <p>enter your city or zipcode to get started or just click feed me if you want to search in {{location}}</p><br/>
+
+  <div id="location-input" class="input-field col s6 pull-s5">
+      <input id="zipcode" type="text" class="validate" ng-model="zipcode">
+      <label for="zipcode"> City or Zipcode</label>
+  </div>
+  <a class="waves-effect waves-light btn-large blue accent-4" ng-click="foodInit()"><i class="material-icons right">send</i>Feed Me</a>
+  </div>
 </div>
 
-<button class="waves-effect waves-light btn-small" ng-click="foodInit()">find me food</button><br/>
-<div>
 <br/>
 <div id="restaurant-data-display" class="center-align">
 <h2>{{name}}</h2><br/>
