@@ -19,13 +19,32 @@
   <br/>
 
 
-  <div id="restaurant-data" class="center-align row" ng-repeat="business in businesses">
+  <!-- <div id="restaurant-data" class="center-align row" ng-repeat="business in businesses">
   <h2>{{business.name}}</h2><br/>
   <img src={{business.rating_img_url}}><br/>
   {{business.categories[0][0]}}<br/>
   {{business.display_phone}}<br/>
    <h5>{{business.location.display_address[0]}}<br/>{{business.location.display_address[1]}}</h5><br/>
    <p>"{{business.snippet_text}}"</p></br>
+   <img src={{business.image_url}}> -->
 
   </div>
   <br />
+  <!-- restaurant cards -->
+  <div id="biz-cards" class="row" ng-repeat="business in businesses">
+        <div class="col s12 m4">
+          <div class="card medium">
+            <div class="card-image">
+              <img src={{business.image_url}}>
+              <span class="card-title"><h3>{{business.name}}</h3></span>
+            </div>
+            <div class="card-content">
+              <img src="{{business.rating_img_url}}"><br/>
+              <strong>{{business.location.display_address[0]}},<br/>
+              {{business.location.display_address[1]}}</strong>
+              <p>{{business.display_phone}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>

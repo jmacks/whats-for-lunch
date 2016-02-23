@@ -53,6 +53,7 @@
           foodFactory.getFoodByLocation($scope.lat, $scope.lon)
                      .success(function(food){
                        $scope.businesses = food.businesses;
+                       console.log($scope.businesses);
                        $scope.name = food.businesses[randomNum].name;
                        $scope.reviewSnippet = food.businesses[randomNum].snippet_text;
                        $scope.phone = food.businesses[randomNum].phone;
