@@ -3,8 +3,10 @@
 
         <h1>what's cookin'?</h1>
         <h2>What's Cookin'?</h2>
-        <p>Click this: <a class="btn-floating btn-large waves-effect waves-light blue accent-4" ng-click="locationInit()"><i class="material-icons">my_location</i></a> to get your location or enter a city or zip to search anywhere you want</p>
-        <p>your location: {{location}}</p>
+        <div id="location-display">
+          <p>Click this: <a class="btn-floating btn-large waves-effect waves-light blue accent-4" ng-click="locationInit()"><i class="material-icons">my_location</i></a> to get your location or enter a city or zip to discover the highest rated food in any town</p>
+          <p>your location: {{location}}</p>
+        </div>
 
     <div id="location-input" class="input-field center-align">
         <input id="zipcode" type="text" class="validate" ng-model="zipcode">
@@ -15,16 +17,15 @@
   </div>
 
   <br/>
-  
 
-  <div id="restaurant-data-display" class="center-align">
-  <h2>{{name}}</h2><br/>
-  <img src={{ratingImage}}><br/>
-  {{category[0]}}<br/>
-  {{phone}}<br/>
-   <h5>{{address[0]}}<br/>{{address[1]}}</h5><br/>
 
-  <p>"{{reviewSnippet}}""</p></br>
+  <div id="restaurant-data" class="center-align row" ng-repeat="business in businesses">
+  <h2>{{business.name}}</h2><br/>
+  <img src={{business.rating_img_url}}><br/>
+  {{business.categories[0][0]}}<br/>
+  {{business.display_phone}}<br/>
+   <h5>{{business.location.display_address[0]}}<br/>{{business.location.display_address[1]}}</h5><br/>
+   <p>"{{business.snippet_text}}"</p></br>
 
   </div>
   <br />

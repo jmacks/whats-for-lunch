@@ -19,8 +19,12 @@
     };
 
     factory.getGoogleFood = function(lat, lon){
-      console.log('google factory called');
       return $http.get('/google/' + lat + '/' + lon)
+    };
+
+    factory.searchGoogleFood = function(term, lat, lon){
+      console.log('searching google places...');
+      return $http.get('/google/' + term + '/' + lat + '/' + lon)
     };
 
 

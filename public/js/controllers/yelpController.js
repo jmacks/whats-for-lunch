@@ -21,8 +21,8 @@
         console.log('food has been called');
         foodFactory.getYelpAPI()
                 .success(function(food){
-                  $scope.rating = food.businesses[randomNum].rating;
                   $scope.name = food.businesses[randomNum].name;
+                  $scope.rating = food.businesses[randomNum].rating;
                   $scope.reviewSnippet = food.businesses[randomNum].snippet_text;
                   $scope.phone = food.businesses[randomNum].phone;
                   $scope.crossStreets = food.businesses[randomNum].location.cross_streets;
@@ -36,26 +36,20 @@
                 .error(function(data, status){
                   $log.log('theres an error');
                 })
+
+          foodFactory.searchGoogleFood($scope.name, $scope.lat, $scope.lon)
+                .success(function(results){
+                    $scope.googleResults = results[0];
+                    $scope.googName = googleResults.name;
+                    $scope.rating = googleResults.rating;
+                })
+                .error(function(data, status){
+                  $log.log('error with google term search');
+                })
+
+
       };
        $scope.initFood = initFood;
-
-       function googleFood(){
-         var randomNum = Math.floor(Math.random() * 19) + 1
-         console.log('google food called');
-         foodFactory.getGoogleFood($scope.lat, $scope.lon)
-                    .success(function(food){
-                      var foodResults = food.results[randomNum];
-                      console.log(foodResults)
-                      $scope.google = foodResults.name;
-                    }).error(function(data, status){
-                      $log.log('cant get google data');
-                    });
-       };
-
-       $scope.googleFood = googleFood;
-
-
-
 
 
 

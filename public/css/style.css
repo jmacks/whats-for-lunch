@@ -23,7 +23,7 @@ html{
 }
 
 #intro-text p {
-  color: gray;
+  color: lightgray;
 }
 
 #location-input{
@@ -31,7 +31,17 @@ html{
   margin-left: 115px;
 }
 
+#location-display {
+  margin-top: -15px;
+}
+
 #cookin-logo {
   height: 62px;
   width: 50px;
+}
+
+
+#restaurant-data {
+  width: 350px;
+  font-family: 'Bitter', serif;
 }

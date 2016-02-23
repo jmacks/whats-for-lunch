@@ -36,6 +36,8 @@
 
           foodFactory.getFoodByZip($scope.zipcode)
                     .success(function(food){
+                      $scope.businesses = food.businesses;
+                      console.log($scope.businesses)
                       $scope.rating = food.businesses[randomNum].rating;
                       $scope.name = food.businesses[randomNum].name;
                       $scope.reviewSnippet = food.businesses[randomNum].snippet_text;
@@ -50,6 +52,7 @@
         } else{
           foodFactory.getFoodByLocation($scope.lat, $scope.lon)
                      .success(function(food){
+                       $scope.businesses = food.businesses;
                        $scope.name = food.businesses[randomNum].name;
                        $scope.reviewSnippet = food.businesses[randomNum].snippet_text;
                        $scope.phone = food.businesses[randomNum].phone;
@@ -68,14 +71,7 @@
 
 
 
-      function googleFood(){
-        foodFactory.getGoogleFood($scope.lat, $scope.lon)
-                   .success(function(food){
-                     $scope.googleFood = food.results;
-                   }).error(function(data, status){
-                     $log.log('cant get google data');
-                   });
-      };
+
 
 
 };

@@ -13,13 +13,15 @@ let food = require('../controllers/food_controller.js');
 
 
 router.route('/food')
-      .get(food.retrieve)
+    .get(food.retrieve)
 router.route('/food/:zipcode')
-      .get(food.getByZip)
+    .get(food.getByZip)
 router.route('/food/:lat/:lon')
-      .get(food.getByLocation)
+    .get(food.getByLocation)
 router.route('/google/:lat/:lon')
-      .get(food.getGoogleData)
+    .get(food.getGoogleData)
+router.route('/google/:term/:lat/:lon')
+    .get(food.searchGooglePlaces)
 
 
 

@@ -1,5 +1,5 @@
 'use strict';
-//instantiate the apps main angular module
+//instantiate the apps main angular module and inject the angular routes module
 angular.module('lunchApp', ['ngRoute']);
 
 //setting up the frontend routes

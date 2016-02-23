@@ -57,12 +57,20 @@ var getGoogleData = function(req, res){
   var longitude = req.params.lon;
   var url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=500&type=restaurant&key=AIzaSyC6afskxSbDjG5bk9-f0KHEyZqsBR85ud8'
 
+  grabAPI(url, function(body){
+    res.send(body);
+  });
+};
+
+var searchGooglePlaces = function(req, res){
+  var searchTerm = req.params.term;
+  var latitude = req.params.lat;
+  var longitude = req.params.lon;
+  var url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + searchTerm + '&location=' + latitude + ',' + longitude + '&radius=1000&key=AIzaSyC6afskxSbDjG5bk9-f0KHEyZqsBR85ud8';
 
   grabAPI(url, function(body){
     res.send(body);
   });
-
-
 };
 
 function grabAPI(url, callback){
@@ -80,5 +88,6 @@ module.exports = {
   retrieve: retrieve,
   getByZip: getByZip,
   getByLocation: getByLocation,
-  getGoogleData: getGoogleData
+  getGoogleData: getGoogleData,
+  searchGooglePlaces: searchGooglePlaces
 }
