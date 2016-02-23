@@ -4,6 +4,7 @@
   var yelpController = function($scope, $log, foodFactory){
 
 
+
       navigator.geolocation.getCurrentPosition(position);
 
       function position(pos){
@@ -16,7 +17,7 @@
 
 
     function initFood(){
-        var randomNum = Math.floor(Math.random() * 19) + 1
+      var randomNum = Math.floor(Math.random() * 19) + 1
         console.log('food has been called');
         foodFactory.getYelpAPI()
                 .success(function(food){
@@ -37,6 +38,22 @@
                 })
       };
        $scope.initFood = initFood;
+
+       function googleFood(){
+         var randomNum = Math.floor(Math.random() * 19) + 1
+         console.log('google food called');
+         foodFactory.getGoogleFood($scope.lat, $scope.lon)
+                    .success(function(food){
+                      var foodResults = food.results[randomNum];
+                      console.log(foodResults)
+                      $scope.google = foodResults.name;
+                    }).error(function(data, status){
+                      $log.log('cant get google data');
+                    });
+       };
+
+       $scope.googleFood = googleFood;
+
 
 
 

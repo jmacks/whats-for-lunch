@@ -4,18 +4,18 @@
         <h1>what's cookin'?</h1>
         <h2>What's Cookin'?</h2>
         <p>Click this: <a class="btn-floating btn-large waves-effect waves-light blue accent-4" ng-click="locationInit()"><i class="material-icons">my_location</i></a> to get your location or enter a city or zip to search anywhere you want</p>
-        <p>your current location: {{location}}</p>
+        <p>your location: {{location}}</p>
 
     <div id="location-input" class="input-field center-align">
         <input id="zipcode" type="text" class="validate" ng-model="zipcode">
-        <label for="zipcode"> City or Zipcode</label>
+        <label for="zipcode">City or Zipcode</label>
     </div>
     <a class="waves-effect waves-light btn-large blue accent-4" ng-click="foodInit()"><i class="material-icons right">send</i>Feed Me</a>
     </div>
   </div>
 
   <br/>
-
+  
 
   <div id="restaurant-data-display" class="center-align">
   <h2>{{name}}</h2><br/>
@@ -28,5 +28,3 @@
 
   </div>
   <br />
-
-  <br/>

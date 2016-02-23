@@ -67,6 +67,17 @@
       $scope.foodInit = foodInit;
 
 
+
+      function googleFood(){
+        foodFactory.getGoogleFood($scope.lat, $scope.lon)
+                   .success(function(food){
+                     $scope.googleFood = food.results;
+                   }).error(function(data, status){
+                     $log.log('cant get google data');
+                   });
+      };
+
+
 };
 
 welcomeController.$inject = ['$scope', '$log', 'foodFactory'];

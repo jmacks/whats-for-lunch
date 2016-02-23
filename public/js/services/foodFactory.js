@@ -16,7 +16,12 @@
 
     factory.getFoodByLocation = function(lat, lon){
       return $http.get('/food/' + lat + '/' + lon)
-    }
+    };
+
+    factory.getGoogleFood = function(lat, lon){
+      console.log('google factory called');
+      return $http.get('/google/' + lat + '/' + lon)
+    };
 
 
     return factory;
