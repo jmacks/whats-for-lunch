@@ -46,6 +46,10 @@ html{
   font-family: 'Bitter', serif;
 }
 
+#biz-cards {
+  font-family: 'Bitter', serif;
+}
+
 #biz-cards h3 {
   -webkit-text-stroke: 1px black;
    color: white;

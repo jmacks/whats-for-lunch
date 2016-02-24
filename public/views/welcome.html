@@ -31,19 +31,20 @@
   </div>
   <br />
   <!-- restaurant cards -->
-  <div id="biz-cards" class="row" ng-repeat="business in businesses">
-        <div class="col s12 m4">
-          <div class="card medium">
+  <div id="biz-cards" class="row">
+        <div class="col s12 m4" ng-repeat="business in businesses">
+          <div class="card large">
             <div class="card-image">
               <img src={{business.image_url}}>
               <span class="card-title"><h3>{{business.name}}</h3></span>
             </div>
             <div class="card-content">
+              {{business.categories[0][0]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <img src="{{business.rating_img_url}}"><br/>
               <strong>{{business.location.display_address[0]}},<br/>
-              {{business.location.display_address[1]}}</strong>
-              <p>{{business.display_phone}}</p>
-
+              {{business.location.display_address[1]}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {{business.display_phone}}<br/>
+              <p>"{{business.snippet_text}}"</p>
             </div>
           </div>
         </div>
