@@ -11,7 +11,7 @@
       $scope.lat = pos.coords.latitude;
       $scope.lon = pos.coords.longitude;
     };
-    //  initialize location for display
+    //  initialize location for display using yelp to convert long/lat into city name
     function locationInit(){
      foodFactory.getFoodByLocation($scope.lat, $scope.lon)
                 .success(function(food){
@@ -25,60 +25,39 @@
                   $log.log('location unavailable')
                 })
       };
+      // put location initializer into the angular scope and call it
       $scope.locationInit = locationInit;
+      $scope.locationInit();
 
 
-
+      // function to get food from backend route that calls yelps api (http reqs are in food factory)
       function foodInit(){
-        var randomNum = Math.floor(Math.random() * 19) + 1
-
+        //if user enters zip or city, use that to find food
         if($scope.zipcode){
 
           foodFactory.getFoodByZip($scope.zipcode)
                     .success(function(food){
                       $scope.businesses = food.businesses;
-                      console.log($scope.businesses)
-                      $scope.rating = food.businesses[randomNum].rating;
-                      $scope.name = food.businesses[randomNum].name;
-                      $scope.reviewSnippet = food.businesses[randomNum].snippet_text;
-                      $scope.phone = food.businesses[randomNum].phone;
-                      $scope.crossStreets = food.businesses[randomNum].location.cross_streets;
-                      $scope.ratingImage = food.businesses[randomNum].rating_img_url;
-                      $scope.category = food.businesses[randomNum].categories[0];
-                      $scope.address = food.businesses[randomNum].location.display_address;
                     }).error(function(data, status){
                       $log.log('zip food error');
                     });
+          //if no location info manually entered, use browser current location
         } else{
           foodFactory.getFoodByLocation($scope.lat, $scope.lon)
                      .success(function(food){
                        $scope.businesses = food.businesses;
-                       console.log($scope.businesses);
-                       $scope.name = food.businesses[randomNum].name;
-                       $scope.reviewSnippet = food.businesses[randomNum].snippet_text;
-                       $scope.phone = food.businesses[randomNum].phone;
-                       $scope.ratingImage = food.businesses[randomNum].rating_img_url;
-                       $scope.category = food.businesses[randomNum].categories[0];
-                       $scope.address = food.businesses[randomNum].location.display_address;
-
-
                      }).error(function(data, status){
                        $log.log('food by current location error');
                      });
         }
       };
-
+      // put the previous function in the angular scope
       $scope.foodInit = foodInit;
 
-
-
-
-
-
 };
-
+//inject dependencies this way to avoid errors when minified
 welcomeController.$inject = ['$scope', '$log', 'foodFactory'];
-
+//add the welcome controller to the lunchApp angular module
 angular.module('lunchApp').controller('welcomeController', welcomeController);
 
 

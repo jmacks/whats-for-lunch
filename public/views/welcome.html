@@ -7,7 +7,7 @@
           <p>Click this: <a class="btn-floating btn-large waves-effect waves-light blue accent-4" ng-click="locationInit()"><i class="material-icons">my_location</i></a> to get your location or enter a city or zip to discover the highest rated food in any town</p>
           <p>your location: {{location}}</p>
         </div>
-
+  <!-- search box and label -->
     <div id="location-input" class="input-field center-align">
         <input id="zipcode" type="text" class="validate" ng-model="zipcode">
         <label for="zipcode">City or Zipcode</label>
@@ -18,15 +18,6 @@
 
   <br/>
 
-
-  <!-- <div id="restaurant-data" class="center-align row" ng-repeat="business in businesses">
-  <h2>{{business.name}}</h2><br/>
-  <img src={{business.rating_img_url}}><br/>
-  {{business.categories[0][0]}}<br/>
-  {{business.display_phone}}<br/>
-   <h5>{{business.location.display_address[0]}}<br/>{{business.location.display_address[1]}}</h5><br/>
-   <p>"{{business.snippet_text}}"</p></br>
-   <img src={{business.image_url}}> -->
 
   </div>
   <br />
@@ -39,10 +30,10 @@
               <span class="card-title"><h3>{{business.name}}</h3></span>
             </div>
             <div class="card-content">
-              {{business.categories[0][0]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <strong>{{business.categories[0][0]}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <img src="{{business.rating_img_url}}"><br/>
-              <strong>{{business.location.display_address[0]}},<br/>
-              {{business.location.display_address[1]}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {{business.location.display_address[0]}},<br/>
+              {{business.location.display_address[1]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               {{business.display_phone}}<br/>
               <p>"{{business.snippet_text}}"</p>
             </div>

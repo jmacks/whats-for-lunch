@@ -13,14 +13,6 @@ angular.module('lunchApp', ['ngRoute']);
           controller: 'welcomeController',
           templateUrl: '/views/welcome.html'
         })
-        .when('/yelp', {
-          controller: 'yelpController',
-          templateUrl: '/views/yelp.html'
-        })
-        .when('/restaurants', {
-          controller:'restaurantsController',
-          templateUrl: '/views/restaurants.html'
-        })
         .otherwise({ redirectTo: '/' })
   })
 }());
