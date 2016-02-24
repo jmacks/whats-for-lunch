@@ -10,7 +10,7 @@ let app = express();
 // lets put the api routes elsewhere
 const routes = require('./config/routes.js')
 //connect to the mongo db
-mongoose.connect('mongodb://localhost/lunch', function(err){
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/lunch', function(err){
   if(err){
     console.log('LUNCH Database ERROR');
   } else{
@@ -34,7 +34,7 @@ app.use(routes);
 
 
 // setting up the server connection
-app.listen(1818, function(err){
+app.listen(process.env.PORT || 1818, function(err){
   if(err){
     console.log('not connected to the server');
   } else{
