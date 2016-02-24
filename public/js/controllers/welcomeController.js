@@ -46,6 +46,11 @@
           foodFactory.getFoodByLocation($scope.lat, $scope.lon)
                      .success(function(food){
                        $scope.businesses = food.businesses;
+                       if(food.businesses[0].location.display_address.length > 2){
+                         $scope.location = food.businesses[0].location.display_address[1] + ', ' + food.businesses[0].location.display_address[2]
+                       } else{
+                         $scope.location = food.businesses[0].location.display_address[1]
+                       }
                      }).error(function(data, status){
                        $log.log('food by current location error');
                      });
