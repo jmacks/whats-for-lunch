@@ -18,6 +18,8 @@ router.route('/login')
       .post(account.login)
 router.route('/logout')
       .get(account.logout)
+router.route('/user/status')
+      .get(account.status)
 
 
 //the yelp calling routes

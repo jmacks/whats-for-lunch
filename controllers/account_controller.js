@@ -53,9 +53,21 @@ var logout = function(req, res){
   });
 };
 
+var status = function(req, res){
+  if(!req.isAuthenticated()){
+    return res.status(200).json({
+      status: false
+    })
+  }
+  res.status(200).json({
+    status: true
+  });
+};
+
 
 module.exports = {
   create: create,
   login: login,
-  logout: logout
+  logout: logout,
+  status: status
 }
