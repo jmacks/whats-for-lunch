@@ -8,27 +8,19 @@
 
     var user = null;
 
-    factory.isLoggedIn = function(){
-      if(user){
-        return true;
-      } else {
-        return false;
-      }
-    };
+
 
     factory.getUserStatus = function(){
-      $http.get('/user/status')
-        .success(function(data){
-          if(data.status){
-            user = true;
-          } else {
-            user = false;
-          }
-        })
-        .error(function(data){
-          user = false;
-        });
-      return user;
+      return $http.get('/user/status');
+    };
+
+    factory.setLoggedIn = function (loggedInStatus) {
+     user = !!loggedInStatus;
+     return user;
+    },
+
+    factory.isLoggedIn = function() {
+      return angular.isUndefined(user) || user === null ? factory.setLoggedIn(factory.getUserStatus()) : user;
     };
 
     factory.login = function(username, password){
@@ -37,15 +29,15 @@
       $http.post('/login', {username: username, password: password})
             .success(function(data, status){
               if(status === 200 && data.status){
-                user = true;
+                factory.setLoggedIn(true);
                 deferred.resolve();
               } else {
-                user = false;
+                factory.setLoggedIn(false);
                 deferred.reject();
               }
             })
             .error(function(data){
-              user = false;
+              factory.setLoggedIn(false);
               deferred.reject();
             });
         return deferred.promise;
@@ -56,11 +48,11 @@
 
       $http.get('/logout')
             .success(function(data){
-              user = false;
+              factory.setLoggedIn(false);
               deferred.resolve();
             })
             .error(function(data){
-              user = false;
+              factory.setLoggedIn(false);
               deferred.reject();
             });
         return deferred.promise;

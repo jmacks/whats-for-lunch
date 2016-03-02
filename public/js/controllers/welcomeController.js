@@ -2,8 +2,9 @@
 
 (function(){
 
-  var welcomeController = function($scope, $log, foodFactory){
+  var welcomeController = function($scope, $log, foodFactory, loggedIn){
 
+    $scope.loggedIn = loggedIn;
     // get location
     navigator.geolocation.getCurrentPosition(position);
 
@@ -61,7 +62,7 @@
 
 };
 //inject dependencies this way to avoid errors when minified
-welcomeController.$inject = ['$scope', '$log', 'foodFactory'];
+welcomeController.$inject = ['$scope', '$log', 'foodFactory', 'authFactory'];
 //add the welcome controller to the lunchApp angular module
 angular.module('lunchApp').controller('welcomeController', welcomeController);
 
