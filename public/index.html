@@ -21,6 +21,7 @@
     <script src="/js/services/foodFactory.js"></script>
     <script src="/js/controllers/loginController.js"></script>
     <script src="/js/controllers/registerController.js"></script>
+    <script src="/js/controllers/usersController.js"></script>
     <script src="/js/controllers/welcomeController.js"></script>
 
 
@@ -34,6 +35,12 @@
     <nav>
       <div class="nav-wrapper grey darken-4">
         <a href="" class="brand-logo"><img id="cookin-logo" src="/assets/whats-cookin-logo.jpeg"></a>
+        <div ng-controller="usersController">
+          <div id="greeting"class="left">
+            {{greeting}}
+          </div>
+        </div>
+
         <ul class="right">
           <div ng-controller="loginController">
               <li><a href="#/register" ng-hide="loggedIn()">Sign Up</a></li>
@@ -47,6 +54,7 @@
 
   <!-- where all the templates will slide in  -->
       <div ng-view></div>
+
 
 
   </body>

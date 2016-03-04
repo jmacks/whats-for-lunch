@@ -3,11 +3,21 @@
 (function(){
 
 
-  let authFactory = function($q, $timeout, $http){
+  let authFactory = function($rootScope, $q, $timeout, $http){
+    var self = this;
     var factory = {};
 
     var user = null;
 
+
+    factory.currentUserInit = function(){
+      $http.get('/user')
+        .then(function(res){
+          $rootScope.currentUsername = res.data.username
+          $rootScope.currentUserId = res.data._id;
+          $rootScope.greeting = res.data ? 'Welcome Back ' + $rootScope.currentUsername + ', Let\'s Eat' : 'Welcome! Sign Up to Save Your Faves'
+        })
+    }
 
 
     factory.getUserStatus = function(){
@@ -79,7 +89,7 @@
     return factory;
   }
 
-  authFactory.$inject = ['$q', '$timeout', '$http'];
+  authFactory.$inject = ['$rootScope', '$q', '$timeout', '$http'];
 
   angular.module('lunchApp').factory('authFactory', authFactory);
 

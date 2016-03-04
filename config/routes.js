@@ -10,17 +10,21 @@ let router = express.Router();
 
 let food = require('../controllers/food_controller.js');
 let account = require('../controllers/account_controller.js');
+let users = require('../controllers/users_controller.js');
 
-//the user account creation and login routes
+//the user account creation login routes and RESTful services
 router.route('/register')
-      .post(account.create)
+    .post(account.create)
 router.route('/login')
-      .post(account.login)
+    .post(account.login)
 router.route('/logout')
-      .get(account.logout)
+    .get(account.logout)
 router.route('/user/status')
-      .get(account.status)
-
+    .get(account.status)
+router.route('/user')
+    .get(users.getUser)
+    .post(users.updateUser)
+    .delete(users.deleteUser)
 
 //the yelp calling routes
 router.route('/food')

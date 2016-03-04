@@ -45,6 +45,7 @@ lunchApp.run(function($rootScope, $location, $route, authFactory){
           $location.path('/login');
           $route.reload();
         }
+        authFactory.currentUserInit();
       });
   });
 });
