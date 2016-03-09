@@ -23,8 +23,9 @@ router.route('/user/status')
     .get(account.status)
 router.route('/user')
     .get(users.getUser)
-    .post(users.updateUser)
     .delete(users.deleteUser)
+    .put(users.updateUser)
+
 
 //the yelp calling routes
 router.route('/food')

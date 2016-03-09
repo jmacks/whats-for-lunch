@@ -61,6 +61,10 @@ html{
        1px 1px 0 #000;
 }
 
+#cardImage {
+  height: 188px;
+}
+
 #greeting {
   margin-left: 65px;
 }

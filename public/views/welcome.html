@@ -12,7 +12,7 @@
         <input id="zipcode" type="text" class="validate" ng-model="zipcode">
         <label for="zipcode">City or Zipcode</label>
     </div>
-    <a class="waves-effect waves-light btn-large blue accent-4" ng-click="foodInit()">Feed Me</a>
+    <a class="waves-effect waves-orange btn-large blue accent-4" ng-click="foodInit()">Feed Me</a>
     </div>
   </div>
 
@@ -24,10 +24,13 @@
   <!-- restaurant cards -->
   <div id="biz-cards" class="row">
         <div class="col s12 m4" ng-repeat="business in businesses">
-          <div class="card large">
+          <div class="card">
             <div class="card-image">
-              <img src={{business.image_url}}>
+              <img id="cardImage" src={{business.image_url}}>
               <span class="card-title"><h3>{{business.name}}</h3></span>
+              <div ng-controller="loginController">
+                <button class="waves-effect waves-light btn-small blue accent-4" ng-show="loggedIn()" ng-click="saveFavorite(business)">Favorite</button>
+              </div>
             </div>
             <div class="card-content">
               <strong>{{business.categories[0][0]}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -35,7 +38,7 @@
               {{business.location.display_address[0]}},<br/>
               {{business.location.display_address[1]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               {{business.display_phone}}<br/>
-              <p>"{{business.snippet_text}}"</p>
+              <!-- <p>"{{business.snippet_text}}"</p> -->
             </div>
           </div>
         </div>

@@ -45,6 +45,7 @@
           <div ng-controller="loginController">
               <li><a href="#/register" ng-hide="loggedIn()">Sign Up</a></li>
               <li><a href="#/login" ng-hide="loggedIn()">Login</a></li>
+              <li><a href="#/user" ng-show="loggedIn()">My Faves</a></li>
               <li><a ng-click="logout()" ng-show="loggedIn()">logout</a></li>
           </div>
         </ul>

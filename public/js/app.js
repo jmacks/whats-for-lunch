@@ -29,6 +29,11 @@ const lunchApp = angular.module('lunchApp', ['ngRoute']);
           templateUrl: '/views/register.html',
           access: { restricted: false }
         })
+        .when('/user', {
+          controller: 'usersController',
+          templateUrl: '/views/userProfileTemplate.html',
+          access: { restricted: true }
+        })
         .otherwise({ redirectTo: '/' })
   })
 

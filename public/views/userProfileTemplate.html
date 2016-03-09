@@ -1,0 +1,25 @@
+<div class="center-align">
+<h2>hey {{currentUsername}}</h2>
+<h4>you have {{currentUserFavorites.length}} favorite spots</h4>
+</div>
+
+
+<!-- favorite restaurant cards -->
+<div id="biz-cards" class="row">
+      <div class="col s12 m4" ng-repeat="business in currentUserFavorites">
+        <div class="card">
+          <div class="card-image">
+            <img id="cardImage" src={{business.image_url}}>
+            <span class="card-title"><h3>{{business.name}}</h3></span>
+
+          </div>
+          <div class="card-content">
+            <strong>{{business.categories[0][0]}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="{{business.rating_img_url}}"><br/>
+            {{business.location.display_address[0]}},<br/>
+            {{business.location.display_address[1]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {{business.display_phone}}<br/>
+          </div>
+        </div>
+      </div>
+    </div>

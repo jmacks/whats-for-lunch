@@ -4,6 +4,7 @@
 
   var usersController = function($scope, $http, $log, authFactory){
 
+    authFactory.currentUserInit();
 
 
   };

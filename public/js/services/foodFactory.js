@@ -18,6 +18,10 @@
       return $http.get('/food/' + lat + '/' + lon)
     };
 
+    factory.saveFoodToUser = function(restaurant){
+      return $http.put('/user', restaurant)
+    };
+
     return factory;
   }
 

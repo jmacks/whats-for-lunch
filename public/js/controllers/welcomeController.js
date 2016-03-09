@@ -60,6 +60,12 @@
       // put the previous function in the angular scope
       $scope.foodInit = foodInit;
 
+    function saveFavorite(restaurant){
+      foodFactory.saveFoodToUser(restaurant);
+    };
+
+    $scope.saveFavorite = saveFavorite;
+
 };
 //inject dependencies this way to avoid errors when minified
 welcomeController.$inject = ['$scope', '$log', 'foodFactory', 'authFactory'];

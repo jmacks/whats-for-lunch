@@ -9,12 +9,12 @@
 
     var user = null;
 
-
     factory.currentUserInit = function(){
       $http.get('/user')
-        .then(function(res){
+        .then(function(res) {
           $rootScope.currentUsername = res.data.username
           $rootScope.currentUserId = res.data._id;
+          $rootScope.currentUserFavorites = res.data.favorites;
           $rootScope.greeting = res.data ? 'Welcome Back ' + $rootScope.currentUsername + ', Let\'s Eat' : 'Welcome! Sign Up to Save Your Faves'
         })
     }
