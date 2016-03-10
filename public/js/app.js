@@ -10,7 +10,7 @@ const lunchApp = angular.module('lunchApp', ['ngRoute']);
 
       .config(function($routeProvider){
       $routeProvider
-        .when('/', {
+        .when('/home', {
           controller: 'welcomeController',
           templateUrl: '/views/welcome.html',
           access: { restricted: false }
@@ -34,7 +34,7 @@ const lunchApp = angular.module('lunchApp', ['ngRoute']);
           templateUrl: '/views/userProfileTemplate.html',
           access: { restricted: true }
         })
-        .otherwise({ redirectTo: '/' })
+        .otherwise({ redirectTo: '/home' })
   })
 
 
