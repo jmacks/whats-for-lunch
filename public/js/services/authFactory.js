@@ -10,7 +10,7 @@
     var user = null;
 
     factory.currentUserInit = function(){
-      $http.get('/user')
+      return $http.get('/user')
         .then(function(res) {
           $rootScope.currentUsername = res.data.username
           $rootScope.currentUserId = res.data._id;

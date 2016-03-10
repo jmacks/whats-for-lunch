@@ -19,10 +19,10 @@ var updateUser = function(req, res){
       if(err) throw err
 
       console.log('restaurant saved to user favorites')
-
-    });
-
+      res.status(200).json(account);
+    })
   });
+
 };
 
 var deleteUser = function(req, res){

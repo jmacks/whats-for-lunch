@@ -2,7 +2,7 @@
 
 (function(){
 
-  var welcomeController = function($scope, $log, foodFactory, loggedIn){
+  var welcomeController = function($scope, $log, foodFactory, loggedIn, $rootScope){
 
     $scope.loggedIn = loggedIn;
     // get location
@@ -61,14 +61,18 @@
       $scope.foodInit = foodInit;
 
     function saveFavorite(restaurant){
-      foodFactory.saveFoodToUser(restaurant);
+      console.log('current user favorites before: ', $rootScope.currentUserFavorites);
+      return foodFactory.saveFoodToUser(restaurant).then(function () {
+        //$rootScope.currentUserFavorites.push(restaurant);
+        console.log('current user favorites after: ', $rootScope.currentUserFavorites);
+      });
     };
 
     $scope.saveFavorite = saveFavorite;
 
 };
 //inject dependencies this way to avoid errors when minified
-welcomeController.$inject = ['$scope', '$log', 'foodFactory', 'authFactory'];
+welcomeController.$inject = ['$scope', '$log', 'foodFactory', 'authFactory', '$rootScope'];
 //add the welcome controller to the lunchApp angular module
 angular.module('lunchApp').controller('welcomeController', welcomeController);
 
