@@ -33,11 +33,11 @@
               </div>
             </div>
             <div class="card-content">
-              <strong>{{business.categories[0][0]}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <img src="{{business.rating_img_url}}"><br/>
+              <strong>{{business.categories[0][0]}}</strong>
+              <img id="yelp-rating" src="{{business.rating_img_url}}"><br/>
               {{business.location.display_address[0]}},<br/>
-              {{business.location.display_address[1]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              {{business.display_phone}}<br/>
+              {{business.location.display_address[1]}}
+              <span id="phone-number">{{business.display_phone}}</span><br/>
               <!-- <p>"{{business.snippet_text}}"</p> -->
             </div>
           </div>

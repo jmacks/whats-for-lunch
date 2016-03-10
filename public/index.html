@@ -13,6 +13,7 @@
     <script src="scripts/jquery/dist/jquery.min.js"></script>
     <script src="scripts/angular/angular.js"></script>
     <script src="/js/angular-routes.js"></script>
+    <script src="/js/ng-animate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
     <!-- the following instantiates the angular app and sets routes -->
     <script type="text/javascript" src="js/app.js"></script>
@@ -43,10 +44,10 @@
 
         <ul class="right">
           <div ng-controller="loginController">
-              <li><a href="#/register" ng-hide="loggedIn()">Sign Up</a></li>
-              <li><a href="#/login" ng-hide="loggedIn()">Login</a></li>
-              <li><a href="#/user" ng-show="loggedIn()">My Faves</a></li>
-              <li><a ng-click="logout()" ng-show="loggedIn()">logout</a></li>
+              <li class="navbar-links"><a href="#/register" ng-hide="loggedIn()">Sign Up</a></li>
+              <li class="navbar-links"><a href="#/login" ng-hide="loggedIn()">Login</a></li>
+              <li class="navbar-links"><a href="#/user" ng-show="loggedIn()">My Faves</a></li>
+              <li class="navbar-links"><a ng-click="logout()" ng-show="loggedIn()">logout</a></li>
           </div>
         </ul>
       </div>

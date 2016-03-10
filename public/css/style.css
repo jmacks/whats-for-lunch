@@ -36,7 +36,7 @@ html{
 }
 
 #cookin-logo {
-  height: 62px;
+  height: 57px;
   width: 50px;
 }
 
@@ -51,7 +51,7 @@ html{
 }
 
 #biz-cards h3 {
-  -webkit-text-stroke: 1px black;
+   -webkit-text-stroke: 1px black;
    color: white;
    text-shadow:
        3px 3px 0 #000,
@@ -67,4 +67,21 @@ html{
 
 #greeting {
   margin-left: 65px;
+}
+
+#yelp-rating {
+  float: right;
+}
+
+#phone-number {
+  float: right;
+}
+
+.navbar-links {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+.navbar-links.ng-hide {
+  opacity:0;
+  transform: scale(0.8);
 }
