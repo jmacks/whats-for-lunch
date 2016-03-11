@@ -3,7 +3,7 @@
 
 
 
-  let foodFactory = function($http){
+  var foodFactory = function($http){
     var factory = {};
 
     factory.getYelpAPI = function(){

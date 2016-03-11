@@ -3,7 +3,7 @@
 (function(){
 
 
-  let authFactory = function($rootScope, $q, $timeout, $http){
+  var authFactory = function($rootScope, $q, $timeout, $http){
     var self = this;
     var factory = {};
 

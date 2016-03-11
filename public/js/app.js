@@ -1,6 +1,6 @@
 'use strict';
 //instantiate the apps main angular module and inject the angular routes module
-const lunchApp = angular.module('lunchApp', ['ngRoute', 'ngAnimate']);
+var lunchApp = angular.module('lunchApp', ['ngRoute', 'ngAnimate']);
 
 //setting up the frontend routes
 (function(){
