@@ -4,14 +4,15 @@
 
   var welcomeController = function($scope, $log, foodFactory, loggedIn, $rootScope){
 
-    $scope.loggedIn = loggedIn;
-    // get location
-    navigator.geolocation.getCurrentPosition(position);
+      // get location
+      navigator.geolocation.getCurrentPosition(position);
+      function position(pos){
+        $scope.lat = pos.coords.latitude;
+        $scope.lon = pos.coords.longitude;
+      };
 
-    function position(pos){
-      $scope.lat = pos.coords.latitude;
-      $scope.lon = pos.coords.longitude;
-    };
+    $scope.loggedIn = loggedIn;
+
     //  initialize location for display using yelp to convert long/lat into city name
     function locationInit(){
      foodFactory.getFoodByLocation($scope.lat, $scope.lon)
@@ -59,12 +60,12 @@
       };
       // put the previous function in the angular scope
       $scope.foodInit = foodInit;
+      $scope.foodInit();
 
     function saveFavorite(restaurant){
-      console.log('current user favorites before: ', $rootScope.currentUserFavorites);
       return foodFactory.saveFoodToUser(restaurant).then(function () {
-        //$rootScope.currentUserFavorites.push(restaurant);
-        console.log('current user favorites after: ', $rootScope.currentUserFavorites);
+        var toastContent = restaurant.name;
+        Materialize.toast(toastContent + ' added to faves', 3000, 'rounded');
       });
     };
 

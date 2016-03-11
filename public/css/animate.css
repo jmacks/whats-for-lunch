@@ -1,0 +1,16 @@
+/*trying to prevent nav links from delayed exit*/
+.nav-links.ng-enter-prepare {
+  opacity: 0;
+}
+/*view transitions*/
+@keyframes slideOutLeft {
+    to      { transform: translateX(-100%); }
+}
+
+@keyframes slideInRight {
+    from    { transform: translateX(100%); }
+    to      { transform: translateX(0); }
+}
+
+.ng-enter { animation: slideInRight 0.2s both ease-in; z-index: 8888; }
+.ng-leave { animation: slideOutLeft 0.2s both ease-in; z-index: 9999; }

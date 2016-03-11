@@ -1,6 +1,6 @@
 'use strict';
 //instantiate the apps main angular module and inject the angular routes module
-const lunchApp = angular.module('lunchApp', ['ngRoute']);
+const lunchApp = angular.module('lunchApp', ['ngRoute', 'ngAnimate']);
 
 //setting up the frontend routes
 (function(){
@@ -41,7 +41,7 @@ const lunchApp = angular.module('lunchApp', ['ngRoute']);
 }());
 
 //block routes if restricted
-lunchApp.run(function($rootScope, $location, $route, authFactory){
+lunchApp.run(function($rootScope, $location, $route, $animate, authFactory){
   $rootScope.$on('$routeChangeStart',
     function(event, next, current){
       authFactory.getUserStatus().success(function (result) {

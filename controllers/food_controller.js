@@ -1,7 +1,7 @@
 'use strict';
 let request = require('request');
 let Yelp = require('yelp');
-
+//instantiate yelp
 let yelp = new Yelp(
   {
     consumer_key: 'KIBEGGG5fcVGnHOczSX8iQ',

@@ -8,6 +8,7 @@
 
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 
     <script src="scripts/jquery/dist/jquery.min.js"></script>
@@ -42,12 +43,12 @@
           </div>
         </div>
 
-        <ul class="right">
+        <ul class=" nav-links right">
           <div ng-controller="loginController">
-              <li class="navbar-links"><a href="#/register" ng-hide="loggedIn()">Sign Up</a></li>
-              <li class="navbar-links"><a href="#/login" ng-hide="loggedIn()">Login</a></li>
-              <li class="navbar-links"><a href="#/user" ng-show="loggedIn()">My Faves</a></li>
-              <li class="navbar-links"><a ng-click="logout()" ng-show="loggedIn()">logout</a></li>
+              <li class="nav-links"><a href="#/register" ng-hide="loggedIn()">Sign Up</a></li>
+              <li class="nav-links"><a href="#/login" ng-hide="loggedIn()">Login</a></li>
+              <li class="nav-links"><a href="#/user" ng-show="loggedIn()">My Faves</a></li>
+              <li class="nav-links"><a ng-click="logout()" ng-show="loggedIn()">Logout</a></li>
           </div>
         </ul>
       </div>

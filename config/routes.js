@@ -12,7 +12,7 @@ let food = require('../controllers/food_controller.js');
 let account = require('../controllers/account_controller.js');
 let users = require('../controllers/users_controller.js');
 
-//the user account creation login routes and RESTful services
+//the user account creation, login,logout and update routes
 router.route('/register')
     .post(account.create)
 router.route('/login')

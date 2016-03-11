@@ -4,7 +4,7 @@ let express = require('express');
 let passport = require('passport');
 let Account = require('../models/account.js');
 
-
+//create account using mongoose schema and passport for authentication
 var create = function(req, res){
   Account.register(new Account({username: req.body.username}), req.body.password, function(err, account){
     if(err){

@@ -76,12 +76,3 @@ html{
 #phone-number {
   float: right;
 }
-
-.navbar-links {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
-}
-.navbar-links.ng-hide {
-  opacity:0;
-  transform: scale(0.8);
-}

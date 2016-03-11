@@ -2,12 +2,12 @@
 
 let Account = require('../models/account.js');
 
-
+//get current user info to use for site customization
 var getUser = function(req, res){
   var currentUser = req.user;
   res.json(currentUser);
 };
-
+//used to update user info, adding favorites
 var updateUser = function(req, res){
   var restaurant = req.body;
   Account.findById(req.user._id, function(err, account){
