@@ -25,13 +25,43 @@ var updateUser = function(req, res){
 
 };
 
-var deleteUser = function(req, res){
+var deleteFavorite = function(req, res){
+  console.log(req.body.id);
+  console.log(req.user._id);
+  var restaurantId = req.body.id;
+  Account.findById(req.user._id, function(err,account){
+    if(err) throw err;
 
+    var favorites = account.favorites;
+    for(var i = 0; i < favorites.length; i++){
+      if(favorites[i].id === restaurantId){
+        favorites.splice(i, 1);
+      }
+    }
+
+    account.save(function(err){
+      if(err) throw err;
+
+      console.log('favorite deleted!')
+      res.status(200).json(account);
+    })
+
+  })
+};
+
+var deleteUser = function(req, res){
+  // Account.findOneAndRemove({ _id: req.user._id }, function(err){
+  //   if(err) throw err;
+  //
+  //   req.logout();
+  //   console.log('deleted user: ' + req.user.username);
+  // })
 };
 
 
 module.exports = {
   getUser: getUser,
   updateUser: updateUser,
-  deleteUser: deleteUser
+  deleteUser: deleteUser,
+  deleteFavorite: deleteFavorite
 }

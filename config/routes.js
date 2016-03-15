@@ -25,6 +25,8 @@ router.route('/user')
     .get(users.getUser)
     .delete(users.deleteUser)
     .put(users.updateUser)
+router.route('/user/favorite')
+    .put(users.deleteFavorite)
 
 
 //the yelp calling routes

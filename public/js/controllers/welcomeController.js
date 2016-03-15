@@ -29,7 +29,7 @@
       };
       // put location initializer into the angular scope and call it
       $scope.locationInit = locationInit;
-      $scope.locationInit();
+      // $scope.locationInit();
 
 
       // function to get food from backend route that calls yelps api (http reqs are in food factory)
@@ -60,7 +60,7 @@
       };
       // put the previous function in the angular scope
       $scope.foodInit = foodInit;
-      $scope.foodInit();
+      // $scope.foodInit();
 
     function saveFavorite(restaurant){
       return foodFactory.saveFoodToUser(restaurant).then(function () {
