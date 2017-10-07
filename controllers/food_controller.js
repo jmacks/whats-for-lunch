@@ -1,8 +1,14 @@
 'use strict';
-let request = require('request');
-let Yelp = require('yelp');
-//instantiate yelp
-let yelp = new Yelp(
+/*
+   This controller handles all requests to external APIs
+   APIs include Yelp which is implemented through a node package
+
+   Also began implementing a Google places API request
+* */
+var request = require('request');
+var Yelp = require('yelp');
+//Yelp Node package for easy integration with Node apps
+var yelp = new Yelp(
   {
     consumer_key: 'KIBEGGG5fcVGnHOczSX8iQ',
     consumer_secret: 'jzOnJ0XVkawqELGCW_3DraYT89I',
@@ -10,22 +16,17 @@ let yelp = new Yelp(
     token_secret: 'amICKcMpnAR5kPyv8ra6QgkCVQY'
   }
 );
-
-
-
+//the default request to yelp if no location is provided
 var retrieve = function(req, res){
-
-
   yelp.search({
     term: 'food',
     ll: '40.718566900000006,-73.985308'
   }).then(function(data){
       res.json(data);
   });
-
-
 };
 
+//send request to yelp API using user-entered location data
 var getByZip = function(req, res){
   var zipcode = req.params.zipcode;
 
@@ -38,6 +39,7 @@ var getByZip = function(req, res){
 
 };
 
+//sends request to Yelp using coordinates retrieved from the browser
 var getByLocation = function(req, res){
 
   var lat = req.params.lat;
@@ -52,6 +54,9 @@ var getByLocation = function(req, res){
 
 };
 
+
+//Methods below are not yet implemented
+//they can provide an alternative API to yelp for retrieving restaurant data
 var getGoogleData = function(req, res){
   var latitude = req.params.lat;
   var longitude = req.params.lon;
@@ -81,7 +86,7 @@ function grabAPI(url, callback){
     callback(body);
     }
   })
-};
+}
 
 
 module.exports = {
@@ -90,4 +95,4 @@ module.exports = {
   getByLocation: getByLocation,
   getGoogleData: getGoogleData,
   searchGooglePlaces: searchGooglePlaces
-}
+};

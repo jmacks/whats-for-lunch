@@ -1,8 +1,14 @@
 'use strict';
 
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
-let passportLocalMongoose = require('passport-local-mongoose');
+/*
+ Schema for the user account.
+
+ favorites column is used to save user favorite restaurants
+*/
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
 var Account = new Schema({
   username: String,

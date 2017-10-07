@@ -1,8 +1,8 @@
 'use strict';
 
-let express = require('express');
-let passport = require('passport');
-let Account = require('../models/account.js');
+var express = require('express');
+var passport = require('passport');
+var Account = require('../models/account.js');
 
 //create account using mongoose schema and passport for authentication
 var create = function(req, res){
@@ -49,7 +49,7 @@ var login = function(req, res, next){
 var logout = function(req, res){
   req.logout();
   res.status(200).json({
-    status: 'logged out! peace!'
+    status: 'logged out! bye!'
   });
 };
 
@@ -70,4 +70,4 @@ module.exports = {
   login: login,
   logout: logout,
   status: status
-}
+};

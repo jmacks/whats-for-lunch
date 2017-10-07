@@ -1,33 +1,37 @@
 'use strict';
 
-let Account = require('../models/account.js');
+/*
+   UserController handles all current user activity
+   updateUser method saves new favorite restaurants to user account
+   deleteFavorite removes restaurants from user list of favorites
+* */
+
+const Account = require('../models/account.js');
 
 //get current user info to use for site customization
 var getUser = function(req, res){
   var currentUser = req.user;
   res.json(currentUser);
 };
+
 //used to update user info, adding favorites
 var updateUser = function(req, res){
   var restaurant = req.body;
   Account.findById(req.user._id, function(err, account){
-    if(err) throw err
+    if(err) throw err;
 
-    account.favorites.push(restaurant)
+    account.favorites.push(restaurant);
 
     account.save(function(err){
-      if(err) throw err
+      if(err) throw err;
 
-      console.log('restaurant saved to user favorites')
+      console.log('restaurant saved to user favorites');
       res.status(200).json(account);
     })
   });
-
 };
 
 var deleteFavorite = function(req, res){
-  console.log(req.body.id);
-  console.log(req.user._id);
   var restaurantId = req.body.id;
   Account.findById(req.user._id, function(err,account){
     if(err) throw err;
@@ -42,7 +46,7 @@ var deleteFavorite = function(req, res){
     account.save(function(err){
       if(err) throw err;
 
-      console.log('favorite deleted!')
+      console.log('favorite deleted!');
       res.status(200).json(account);
     })
 
@@ -64,4 +68,4 @@ module.exports = {
   updateUser: updateUser,
   deleteUser: deleteUser,
   deleteFavorite: deleteFavorite
-}
+};

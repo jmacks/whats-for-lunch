@@ -1,19 +1,24 @@
 'use strict';
-
-let express = require('express'); //makes server creation and configuration a bit less verbose
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let morgan = require('morgan'); //logs better errors
-let bodyParser =require('body-parser'); //parses the body of the server responses
-let mongoose = require('mongoose'); //makes interaction with the mongo db alot easier
-let methodOverride = require('method-override');
-let passport = require('passport');
-let LocalStrategy = require('passport-local').Strategy;
+/*
+  This file serves as the entry-point for the application
+  It sets up the server and database connections and includes necessary middleware
+* */
+const express = require('express'); //makes server creation and configuration a bit less verbose
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const morgan = require('morgan'); //logs better errors
+const bodyParser =require('body-parser'); //parses the body of the server responses
+const mongoose = require('mongoose'); //makes interaction with the mongo db alot easier
+const methodOverride = require('method-override');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 // instantiate express object so we can use its methods
-let app = express();
-// lets put the api routes elsewhere
-const routes = require('./config/routes.js')
-//connect to the mongo db
+const app = express();
+// API routes
+const routes = require('./config/routes.js');
+
+
+//connect to the Mongo db using Mongoose
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/lunch', function(err){
   if(err){
     console.log('LUNCH Database ERROR');
@@ -21,6 +26,7 @@ mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/lunch', functi
     console.log('LUNCH DB connection SUCCESS');
   }
 });
+
 // config the middleware
 app.use(morgan('dev'));
 // use body parser to see the body of responses
@@ -37,12 +43,11 @@ app.use(passport.session());
 // grab all static files from the public folder
 app.use('/', express.static(__dirname + '/public'));
 app.use('/scripts', express.static(__dirname + '/node_modules'));
-// use method override
 app.use(methodOverride());
-//routes
 app.use(routes);
 
-//set up passport
+//set up passport, it is an npm package that makes it easy to
+//setup authentication compatible with Express
 var Account = require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
@@ -52,8 +57,8 @@ passport.deserializeUser(Account.deserializeUser());
 // setting up the server connection
 app.listen(process.env.PORT || 1818, function(err){
   if(err){
-    console.log('not connected to the server');
+    console.log(err);
   } else{
-    console.log('SERVER CONNECTION HEADY @1818')
+    console.log('SERVER CONNECTION @ localhost:1818');
   }
 });
