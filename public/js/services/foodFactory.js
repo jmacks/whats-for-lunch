@@ -1,4 +1,9 @@
 'use strict';
+/*
+   This factory handles all requests made to backend routes that have to do with food data
+   Includes calling the route that calls the external API as well as routes that allow registred users
+   to save favorites
+*/
 (function(){
 
 

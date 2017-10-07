@@ -1,5 +1,7 @@
 'use strict';
-
+/*
+* Implementation of the authFactory for user registration and authentication
+* */
 (function(){
 
   var registerController = function($scope, $location, authFactory){

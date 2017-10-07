@@ -1,5 +1,8 @@
 'use strict';
-
+/*
+* This factory handles all authorization related tasks
+* includes registration, loggin in and out
+* */
 (function(){
 
 
@@ -27,7 +30,7 @@
     factory.setLoggedIn = function (loggedInStatus) {
      user = !!loggedInStatus;
      return user;
-    },
+    };
 
     factory.isLoggedIn = function() {
       return angular.isUndefined(user) || user === null ? factory.setLoggedIn(factory.getUserStatus()) : user;

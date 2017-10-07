@@ -1,5 +1,7 @@
 'use strict';
-
+/*
+* Uses authFactory to handle user login and logout
+* */
 (function(){
 
   var loginController = function($scope, $location, authFactory){

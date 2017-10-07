@@ -4,14 +4,6 @@
 
   var usersController = function($scope, $http, $location, $route, authFactory, foodFactory){
 
-    // $scope.deleteUser = function(){
-    //      return $http.delete('/user').then(function(){
-    //             authFactory.logout();
-    //             $location.path('/');
-    //             authFactory.currentUserInit();
-    //           });
-    //       }
-
     function deleteFavorite(restaurant) {
       console.log('delete fav clicked!')
       return foodFactory.deleteFoodFromUser(restaurant).then(function(){
@@ -19,7 +11,7 @@
         Materialize.toast(toastContent + ' deleted', 3000);
         $route.reload();
       })
-    };
+    }
 
     $scope.deleteFavorite = deleteFavorite;
 

@@ -1,5 +1,9 @@
 'use strict';
-
+/*
+* Main functionality for the landing page is handled here
+* This includes getting the location via the browser
+* And calling on the foodFactory to request nearby restaurants
+* */
 (function(){
 
   var welcomeController = function($scope, $log, foodFactory, loggedIn, $rootScope){
@@ -9,7 +13,7 @@
       function position(pos){
         $scope.lat = pos.coords.latitude;
         $scope.lon = pos.coords.longitude;
-      };
+      }
 
     $scope.loggedIn = loggedIn;
 
